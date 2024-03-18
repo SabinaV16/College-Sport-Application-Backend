@@ -1,0 +1,59 @@
+databaseChangeLog:
+  - changeSet:
+      dbms: postgresql
+      author: Popa Sabina Valentina
+      id: 5
+      comment: Create meci table
+      changes:
+        - createTable:
+            tableName: meci
+            columns:
+              - column:
+                  name: id
+                  type: Integer
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: id_echipa
+                  type: Integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: id_echipa_adv
+                  type: Integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: puncte_noi
+                  type: Integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: puncte_adv
+                  type: Integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: locatie
+                  type: text
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: meci
+            baseColumnNames: id_echipa_adv
+            constraintName: fk_meci_echipe_adv
+            referencedTableName: echipe_adverse
+            referencedColumnNames: id_echipa_adv
+            onDelete: CASCADE
+            onUpdate: CASCADE
+
+        - addForeignKeyConstraint:
+            baseTableName: meci
+            baseColumnNames: id_echipa
+            constraintName: fk_meci_echipe
+            referencedTableName: echipe
+            referencedColumnNames: id_echipa
+            onDelete: CASCADE
+            onUpdate: CASCADE

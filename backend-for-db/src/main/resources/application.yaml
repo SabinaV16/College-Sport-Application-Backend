@@ -1,0 +1,25 @@
+datasource:
+  url: localhost:8081/postgres
+  username: postgres
+  password: postgres
+
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+
+
+  datasource:
+    url: jdbc:postgresql://${datasource.url}
+    username: ${datasource.username}
+    password: ${datasource.password}
+  logging:
+    level:
+      web: trace
+
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yml

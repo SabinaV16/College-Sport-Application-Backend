@@ -1,0 +1,79 @@
+databaseChangeLog:
+  - changeSet:
+      dbms: postgresql
+      author: Popa Sabina_Valentina
+      id: 11
+      comment: Insert data to echipe
+      changes:
+        - insert:
+            tableName: echipe
+            columns:
+
+              - column:
+                  name: id_antrenor
+                  value: 3
+              - column:
+                  name: denumire
+                  value: "Steaua"
+        - insert:
+            tableName: echipe
+            columns:
+
+              - column:
+                  name: id_antrenor
+                  value: 6
+              - column:
+                  name: denumire
+                  value: "petrol"
+        - insert:
+            tableName: echipe
+            columns:
+
+              - column:
+                  name: id_antrenor
+                  value: 2
+
+              - column:
+                  name: denumire
+                  value: "Dinamo"
+        - insert:
+            tableName: echipe
+            columns:
+
+
+              - column:
+                  name: id_antrenor
+                  value: 7
+              - column:
+                  name: denumire
+                  value: "Huston"
+        - insert:
+            tableName: echipe
+            columns:
+
+              - column:
+                  name: id_antrenor
+                  value: 1
+              - column:
+                  name: denumire
+                  value: "Rugby2"
+        - insert:
+            tableName: echipe
+            columns:
+
+              - column:
+                  name: id_antrenor
+                  value: 4
+              - column:
+                  name: denumire
+                  value: "Steaua"
+        - insert:
+            tableName: echipe
+            columns:
+
+              - column:
+                  name: id_antrenor
+                  value: 5
+              - column:
+                  name: denumire
+                  value: "Dinamo"

@@ -1,0 +1,99 @@
+databaseChangeLog:
+  - changeSet:
+      dbms: postgresql
+      author: Popa Sabina_Valentina
+      id: 14
+      comment: Insert data to dateSportive
+      changes:
+        - insert:
+            tableName: date_sportive
+            columns:
+              - column:
+                  name: id_student
+                  value: 1
+
+              - column:
+                  name: id_echipa
+                  value: 1
+              - column:
+                  name: data_inscriere
+                  value: "2022-10-04"
+
+        - insert:
+            tableName: date_sportive
+            columns:
+              - column:
+                  name: id_student
+                  value: 2
+              - column:
+                  name: id_echipa
+                  value: 1
+              - column:
+                  name: data_inscriere
+                  value: "2023-10-04"
+
+        - insert:
+            tableName: date_sportive
+            columns:
+              - column:
+                  name: id_student
+                  value: 3
+              - column:
+                  name: id_echipa
+                  value: 2
+              - column:
+                  name: data_inscriere
+                  value: "2022-06-04"
+
+        - insert:
+            tableName: date_sportive
+            columns:
+              - column:
+                  name: id_student
+                  value: 4
+              - column:
+                  name: id_echipa
+                  value: 2
+              - column:
+                  name: data_inscriere
+                  value: "2022-11-20"
+
+        - insert:
+            tableName: date_sportive
+            columns:
+              - column:
+                  name: id_student
+                  value: 5
+              - column:
+                  name: id_echipa
+                  value: 3
+              - column:
+                  name: data_inscriere
+                  value: "2023-01-09"
+
+        - insert:
+            tableName: date_sportive
+            columns:
+              - column:
+                  name: id_student
+                  value: 6
+              - column:
+                  name: id_echipa
+                  value: 4
+              - column:
+                  name: data_inscriere
+                  value: "2021-11-05"
+
+        - insert:
+            tableName: date_sportive
+            columns:
+              - column:
+                  name: id_student
+                  value: 7
+              - column:
+                  name: id_echipa
+                  value: 5
+              - column:
+                  name: data_inscriere
+                  value: "2023-10-12"
+

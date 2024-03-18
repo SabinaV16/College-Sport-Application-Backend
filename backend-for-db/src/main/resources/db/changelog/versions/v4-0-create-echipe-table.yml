@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      dbms: postgresql
+      author: Popa Sabina Valentina
+      id: 4
+      comment: Create echipe table
+      changes:
+        - createTable:
+            tableName: echipe
+            columns:
+              - column:
+                  name: id_echipa
+                  type: Integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: id_antrenor
+                  type: Integer
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: denumire
+                  type: text
+                  constraints:
+                    nullable: false
+
+
+        - addForeignKeyConstraint:
+            baseTableName: echipe
+            baseColumnNames: id_antrenor
+            constraintName: fk_echipa_antrenor
+            referencedTableName: antrenori
+            referencedColumnNames: id_antrenor
+            onDelete: CASCADE
+            onUpdate: CASCADE
+
+

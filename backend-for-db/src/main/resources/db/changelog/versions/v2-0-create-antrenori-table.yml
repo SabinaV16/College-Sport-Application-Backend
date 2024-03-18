@@ -1,0 +1,87 @@
+databaseChangeLog:
+  - changeSet:
+      dbms: postgresql
+      author: Popa Sabina Valentina
+      id: 2
+      comment: Create antrenori table
+      changes:
+        - createTable:
+            tableName: antrenori
+            columns:
+              - column:
+                  name: id_antrenor
+                  type: Integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: id_coordonator
+                  type: Integer
+
+              - column:
+                  name: nume
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: prenume
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cnp
+                  type: varchar(13)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: sex
+                  type: varchar(1)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: numar_telefon
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: data_nasterii
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: judet_sector
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: oras
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: strada
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: data_angajarii
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: salariu
+                  type: double
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: antrenori
+            baseColumnNames: id_coordonator
+            constraintName: fk_antrenori_antrenori
+            referencedTableName: antrenori
+            referencedColumnNames: id_antrenor
+            onDelete: CASCADE
+            onUpdate: CASCADE
+
+

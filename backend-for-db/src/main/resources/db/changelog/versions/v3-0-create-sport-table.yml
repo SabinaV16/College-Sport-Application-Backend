@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      dbms: postgresql
+      author: Popa Sabina Valentina
+      id: 3
+
+      comment: Create sport table
+      changes:
+        - createTable:
+            tableName: sport
+            columns:
+              - column:
+                  name: id_sport
+                  type: Integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: denumire
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: id_coordonator
+                  type: Integer
+                  constraints:
+                    unique: true
+
+        - addForeignKeyConstraint:
+            baseTableName: sport
+            baseColumnNames: id_coordonator
+            constraintName: fk_sport_antrenori
+            referencedTableName: antrenori
+            referencedColumnNames: id_antrenor
+            onDelete: CASCADE
+            onUpdate: CASCADE
+
+
+

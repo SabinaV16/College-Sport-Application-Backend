@@ -1,0 +1,57 @@
+databaseChangeLog:
+  - changeSet:
+      dbms: postgresql
+      author: Popa Sabina Valentina
+      id: 1
+      comment: Create echipeAdverse table
+      changes:
+        - createTable:
+            tableName: echipe_adverse
+            columns:
+              - column:
+                  name: id_echipa_adv
+                  type: serial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: denumire
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: universitate
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: nume_antrenor
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: prenume_antrenor
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: strada
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: judet_sector
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: oras
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: sport
+                  type: text
+                  constraints:
+                    nullable: false

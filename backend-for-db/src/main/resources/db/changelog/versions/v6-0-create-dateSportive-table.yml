@@ -1,0 +1,124 @@
+databaseChangeLog:
+  - changeSet:
+      dbms: postgresql
+      author: Popa Sabina Valentina
+      id: 6
+      comment: Create dateSportive table
+      changes:
+        - createTable:
+            tableName: date_studenti
+            columns:
+              - column:
+                  name: id_student
+                  type: serial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: nume
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: prenume
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cnp
+                  type: varchar(13)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: facultate
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: domeniu
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: grupa
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: serie
+                  type: varchar(2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: an
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: numar_telefon
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: data_nasterii
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: sex
+                  type: varchar(1)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: judet_sector
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: oras
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: strada
+                  type: text
+                  constraints:
+                    nullable: false
+
+
+
+        - createTable:
+            tableName: date_sportive
+            columns:
+              - column:
+                  name: id_student
+                  type: Integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    unique: true
+                    references: date_studenti(id_student)
+                    foreignKeyName: fk_dateStudenti_dateSportive
+              - column:
+                  name: id_echipa
+                  type: Integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: data_inscriere
+                  type: date
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: date_sportive
+            baseColumnNames: id_echipa
+            constraintName: fk_echipe_date_sportive
+            referencedTableName: echipe
+            referencedColumnNames: id_echipa
+            onDelete: CASCADE
+            onUpdate: CASCADE
+

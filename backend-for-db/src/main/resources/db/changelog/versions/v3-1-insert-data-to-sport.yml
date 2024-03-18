@@ -1,0 +1,67 @@
+databaseChangeLog:
+  - changeSet:
+      dbms: postgresql
+      author: Popa Sabina Valentina
+      id: 10
+      comment: Insert data to sport
+      changes:
+        - insert:
+            tableName: sport
+            columns:
+              - column:
+                  name: id_sport
+                  value: 1
+              - column:
+                  name: id_coordonator
+                  value: 3
+              - column:
+                  name: denumire
+                  value: "Fotbal"
+        - insert:
+            tableName: sport
+            columns:
+              - column:
+                  name: id_sport
+                  value: 2
+              - column:
+                  name: id_coordonator
+                  value: 2
+              - column:
+                  name: denumire
+                  value: "Baschet"
+        - insert:
+            tableName: sport
+            columns:
+              - column:
+                  name: id_sport
+                  value: 3
+              - column:
+                  name: id_coordonator
+                  value: 1
+              - column:
+                  name: denumire
+                  value: "Rugby"
+        - insert:
+            tableName: sport
+            columns:
+              - column:
+                  name: id_sport
+                  value: 4
+              - column:
+                  name: id_coordonator
+                  value: 4
+              - column:
+                  name: denumire
+                  value: "Volei"
+        - insert:
+            tableName: sport
+            columns:
+              - column:
+                  name: id_sport
+                  value: 5
+              - column:
+                  name: id_coordonator
+                  value: 5
+              - column:
+                  name: denumire
+                  value: "Handbal"
