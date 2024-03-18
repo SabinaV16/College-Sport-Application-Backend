@@ -21,13 +21,15 @@ public interface AntrenoriRepository extends JpaRepository<Antrenori, Integer> {
     @Transactional
     @Query(value = "DELETE FROM antrenori WHERE nume = :nume AND prenume = :prenume", nativeQuery = true)
     void deleteAntrenoriByNume(@Param("nume") String nume, @Param("prenume") String prenume);
-//antrenori si numele echipelor de la un anumit sport ales
+
+    //antrenori si numele echipelor de la un anumit sport ales
     @Query("SELECT a.nume, a.prenume, e.denumire FROM Antrenori a " +
             "INNER JOIN Echipe e ON a.idAntrenor = e.idAntrenor " +
             "LEFT JOIN Sport s ON a.idCoordonator = s.idCoordonator OR a.idAntrenor= s.idCoordonator " +
             "WHERE s.denumire = :denumireSport ")
     List<Object[]> getAntrenoriEchipeBySport(@Param("denumireSport") String denumireSport);
-//nume prenume antrenori care antreneaza studenti de la seria ab
+
+    //nume prenume antrenori care antreneaza studenti de la seria ab
     @Query("SELECT DISTINCT a.nume, a.prenume " +
             "FROM Antrenori a " +
             "JOIN Echipe e ON a.idAntrenor = e.idAntrenor " +
@@ -36,7 +38,8 @@ public interface AntrenoriRepository extends JpaRepository<Antrenori, Integer> {
             "WHERE ds2.serie = 'AB' "
     )
     List<Object[]> getAntrenoriBySerie();
-//antrenorul care antreneaza echipa cu cel mai longeviv student
+
+    //antrenorul care antreneaza echipa cu cel mai longeviv student
     @Query("SELECT a.nume AS numeAntrenor, a.prenume AS prenumeAntrenor " +
             "FROM Antrenori a " +
             "JOIN Echipe e ON a.idAntrenor = e.idAntrenor " +

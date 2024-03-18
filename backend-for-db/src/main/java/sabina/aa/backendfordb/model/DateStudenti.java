@@ -2,7 +2,6 @@ package sabina.aa.backendfordb.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,9 +18,9 @@ public class DateStudenti {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idStudent;
 
-
     @NotBlank
     private String nume;
+
     @NotBlank
     private String prenume;
 
@@ -43,6 +42,7 @@ public class DateStudenti {
     private String sex;
 
     private String facultate;
+
     @Column(length = 3)
     private String grupa;
 

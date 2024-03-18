@@ -16,7 +16,8 @@ public interface EchipeRepository extends JpaRepository<Echipe, Integer> {
     @Modifying
     @Query(value = "UPDATE echipe SET denumire = :numeNou WHERE denumire = :denumire", nativeQuery = true)
     void updateNumeEchipaByNume(@Param("denumire") String denumire, @Param("numeNou") String numeNou);
-// echipele care au cel putin un pct castigat impreuna cu totalul punctelor de la toate meciurile
+
+    // echipele care au cel putin un pct castigat impreuna cu totalul punctelor de la toate meciurile
     @Query("SELECT e.denumire AS numeEchipa, SUM(m.puncteNoi) AS totalPuncteObtinute " +
             "FROM Echipe e " +
             "JOIN Meci m ON e.idEchipa = m.idEchipa " +

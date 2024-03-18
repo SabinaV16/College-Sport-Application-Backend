@@ -6,7 +6,6 @@ import lombok.Data;
 @Data
 @Builder
 public class CastigatoriDto {
-
     private String denumire;
     private int puncte;
 

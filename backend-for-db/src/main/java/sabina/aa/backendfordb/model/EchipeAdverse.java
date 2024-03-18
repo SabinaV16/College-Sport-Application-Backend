@@ -13,6 +13,7 @@ public class EchipeAdverse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEchipaAdv;
+
     @NotBlank
     private String denumire;
 

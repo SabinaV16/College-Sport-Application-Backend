@@ -22,21 +22,27 @@ public class AppServiceImpl implements AppService {
     private final AntrenoriRepository antrenorRepository;
     private final EchipeAdverseRepository echipeAdverseRepository;
     private final EchipeRepository echipeRepository;
+
     @Override
     public void deleteEchipeAdv(EchipeAdverse echipe) {
         echipeAdverseRepository.deleteEchipaAdversaByNume(echipe.getDenumire());
     }
+
     @Override
     public void deleteAntrenori(Antrenori antrenori) {
         antrenorRepository.deleteAntrenoriByNume(antrenori.getNume(), antrenori.getPrenume());
     }
+
     @Override
-    public void adaugaDateStudenti(DateStudenti student) {studentPRepository.insertStudenti(student);
+    public void adaugaDateStudenti(DateStudenti student) {
+        studentPRepository.insertStudenti(student);
     }
+
     @Override
     public void updateSalariu(Antrenori antrenori) {
         antrenorRepository.updateSalariuByNumeAndPrenume(antrenori.getNume(), antrenori.getPrenume(), antrenori.getSalariu());
     }
+
     @Override
     public void updateNumeEchipa(EchipeDto nume) {
         echipeRepository.updateNumeEchipaByNume(nume.getDenumire(), nume.getNumeNou());
@@ -46,8 +52,9 @@ public class AppServiceImpl implements AppService {
     public void adaugaEchipeAdverse(EchipeAdverse echipeAdverse) {
         echipeAdverseRepository.insertEchipeAdverse(echipeAdverse);
     }
+
     @Override
-    public List<NumePrenumeDto> getNumePrenumeStudentibyEchipa(String denumireEchipa){
+    public List<NumePrenumeDto> getNumePrenumeStudentibyEchipa(String denumireEchipa) {
         return studentPRepository.getStudentbyEchipa(denumireEchipa).stream().distinct()
                 .map(objects -> NumePrenumeDto.builder()
                         .nume((String) objects[0])
@@ -55,8 +62,9 @@ public class AppServiceImpl implements AppService {
                         .build())
                 .toList();
     }
+
     @Override
-    public List<DetaliiEchipaDto> getAntrenoriAndEchipeBySport(String sport){
+    public List<DetaliiEchipaDto> getAntrenoriAndEchipeBySport(String sport) {
         return antrenorRepository.getAntrenoriEchipeBySport(sport).stream()
                 .map(objects -> DetaliiEchipaDto.builder()
                         .nume((String) objects[0])
@@ -65,8 +73,9 @@ public class AppServiceImpl implements AppService {
                         .build())
                 .toList();
     }
+
     @Override
-    public List<DetaliiEchipaDto> getStudentiAndEchipeByDataInscriere(LocalDate dataInscriere){
+    public List<DetaliiEchipaDto> getStudentiAndEchipeByDataInscriere(LocalDate dataInscriere) {
         return studentPRepository.getStudentDataInscriere(dataInscriere).stream()
                 .map(objects -> DetaliiEchipaDto.builder()
                         .nume((String) objects[0])
@@ -75,9 +84,10 @@ public class AppServiceImpl implements AppService {
                         .build())
                 .toList();
     }
+
     @Override
-    public List<DetaliiStudentiDto> getStudentibyAn(){
-        return  studentPRepository.getStudentbyAn().stream()
+    public List<DetaliiStudentiDto> getStudentibyAn() {
+        return studentPRepository.getStudentbyAn().stream()
                 .map(objects -> DetaliiStudentiDto.builder()
                         .nume((String) objects[0])
                         .prenume((String) objects[1])
@@ -85,8 +95,9 @@ public class AppServiceImpl implements AppService {
                         .build())
                 .toList();
     }
+
     @Override
-    public List<CastigatoriDto> getEchipeCastigatoare(){
+    public List<CastigatoriDto> getEchipeCastigatoare() {
         return echipeRepository.getEchipeCastigatoare().stream()
                 .map(objects -> CastigatoriDto.builder()
                         .denumire((String) objects[0])
@@ -94,8 +105,9 @@ public class AppServiceImpl implements AppService {
                         .build())
                 .toList();
     }
+
     @Override
-    public List<NumePrenumeDto> getAntrenoriByStudenti(){
+    public List<NumePrenumeDto> getAntrenoriByStudenti() {
         return antrenorRepository.getAntrenoriBySerie().stream()
                 .map(objects -> NumePrenumeDto.builder()
                         .nume((String) objects[0])
@@ -103,8 +115,9 @@ public class AppServiceImpl implements AppService {
                         .build())
                 .toList();
     }
+
     @Override
-    public List<NumePrenumeDto> getAntrenorByData(){
+    public List<NumePrenumeDto> getAntrenorByData() {
         return antrenorRepository.getAntrenorByDataInscriere().stream()
                 .map(objects -> NumePrenumeDto.builder()
                         .nume((String) objects[0])
@@ -112,8 +125,9 @@ public class AppServiceImpl implements AppService {
                         .build())
                 .toList();
     }
+
     @Override
-    public List<NumePrenumeDto> getAntrenoriByLocaatie(){
+    public List<NumePrenumeDto> getAntrenoriByLocaatie() {
         return antrenorRepository.getAntrenoriByLocatie().stream()
                 .map(objects -> NumePrenumeDto.builder()
                         .nume((String) objects[0])
@@ -121,8 +135,9 @@ public class AppServiceImpl implements AppService {
                         .build())
                 .toList();
     }
+
     @Override
-    public List<AntrenoriDto> getAntrenoriSalariuStudenti(){
+    public List<AntrenoriDto> getAntrenoriSalariuStudenti() {
         return antrenorRepository.getAntrenoribySalariuStudenti().stream()
                 .map(objects -> AntrenoriDto.builder()
                         .nume((String) objects[0])
@@ -132,8 +147,9 @@ public class AppServiceImpl implements AppService {
                         .build())
                 .toList();
     }
+
     @Override
-    public List<NumePrenumeDto> getStudentiCastigatoribyAn(){
+    public List<NumePrenumeDto> getStudentiCastigatoribyAn() {
         return studentPRepository.getStudentiCastigatoribyAn().stream()
                 .map(objects -> NumePrenumeDto.builder()
                         .nume((String) objects[0])

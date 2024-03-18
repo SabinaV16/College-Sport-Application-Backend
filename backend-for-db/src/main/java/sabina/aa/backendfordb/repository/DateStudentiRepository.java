@@ -12,20 +12,20 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface DateStudentiRepository extends JpaRepository <DateStudenti, Integer>{
+public interface DateStudentiRepository extends JpaRepository<DateStudenti, Integer> {
     @Transactional
     @Modifying
-    @Query(nativeQuery = true, value = "INSERT INTO date_studenti ( nume, prenume, cnp, facultate, domeniu, grupa, serie, an, numar_telefon, data_nasterii, sex, judet_sector, oras, strada) VALUES (:#{#student.nume}, :#{#student.prenume}, :#{#student.cnp},:#{#student.facultate}, :#{#student.domeniu}, :#{#student.grupa}, :#{#student.serie}, :#{#student.an}, :#{#student.numarTelefon}, :#{#student.dataNasterii}, :#{#student.sex}, :#{#student.judetSector}, :#{#student.oras}, :#{#student.strada})" )
-  void insertStudenti(@Param("student") DateStudenti student );
+    @Query(nativeQuery = true, value = "INSERT INTO date_studenti ( nume, prenume, cnp, facultate, domeniu, grupa, serie, an, numar_telefon, data_nasterii, sex, judet_sector, oras, strada) VALUES (:#{#student.nume}, :#{#student.prenume}, :#{#student.cnp},:#{#student.facultate}, :#{#student.domeniu}, :#{#student.grupa}, :#{#student.serie}, :#{#student.an}, :#{#student.numarTelefon}, :#{#student.dataNasterii}, :#{#student.sex}, :#{#student.judetSector}, :#{#student.oras}, :#{#student.strada})")
+    void insertStudenti(@Param("student") DateStudenti student);
 
-//toti studentii care sunt intr o anumita echipa introdusa de utilizator
+    //toti studentii care sunt intr o anumita echipa introdusa de utilizator
     @Query("SELECT ds.nume, ds.prenume FROM DateStudenti ds " +
             "INNER JOIN DateSportive d ON ds.idStudent = d.idStudent " +
             "INNER JOIN Echipe e ON e.idEchipa = d.idEchipa " +
             "WHERE e.denumire = :denumireEchipa")
     List<Object[]> getStudentbyEchipa(@Param("denumireEchipa") String denumireEchipa);
 
-//toti studentii care s au inscris dupa o anumita data
+    //toti studentii care s au inscris dupa o anumita data
     @Query("SELECT ds.nume, ds.prenume, e.denumire FROM DateStudenti ds " +
             "INNER JOIN DateSportive d ON ds.idStudent = d.idStudent " +
             "INNER JOIN Echipe e ON d.idEchipa = e.idEchipa " +

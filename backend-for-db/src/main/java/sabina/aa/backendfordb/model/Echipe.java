@@ -14,5 +14,4 @@ public class Echipe {
     private String denumire;
 
 
-
 }

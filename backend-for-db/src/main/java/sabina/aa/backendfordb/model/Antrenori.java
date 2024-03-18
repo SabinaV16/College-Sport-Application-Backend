@@ -17,12 +17,11 @@ public class Antrenori {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAntrenor;
 
-
     private Integer idCoordonator;
-
 
     @NotBlank
     private String nume;
+
     @NotBlank
     private String prenume;
 
